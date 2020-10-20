@@ -1,0 +1,99 @@
+HTML
+http://www.allitebooks.org/introduction-to-html-css/
+http://file.allitebooks.com/20151210/HTML5%20CSS3%20For%20The%20Real%20World,%202%20Edition.pdf
+
+Javascript:
+     http://file.allitebooks.com/20150513/Speaking%20JavaScript.pdf
+HTML:
+
+https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
+https://developer.mozilla.org/en-US/docs/Web/API/Websockets_API
+https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API
+https://developer.mozilla.org/en-US/docs/Web/API/Storage_API
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+
+
+Javascript:
+
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Client-side_storage
+
+javascript webworker:
+    https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
+
+Javascript websocket:
+    https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications
+    https://blog.sessionstack.com/how-javascript-works-deep-dive-into-websockets-and-http-2-with-sse-how-to-pick-the-right-path-584e6b8e3bf7
+
+CSS: 
+    https://developer.mozilla.org/en-US/docs/Learn/CSS
+     https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
+Sass:
+     https://sass-lang.com/
+     https://www.youtube.com/watch?v=_a5j7KoflTs
+Bootstrap:
+    https://getbootstrap.com/docs/4.0/getting-started/introduction/
+
+    
+Ajax
+   https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX
+
+Ajax book:
+http://file.allitebooks.com/20151205/Ajax%20-%20A%20Beginner's%20Guide.pdf
+
+
+Typescript:
+https://www.typescriptlang.org/docs/home.html
+
+RxJS:
+     https://rxjs-dev.firebaseapp.com/guide/overview
+        Observables
+        Operators
+            ** Creation Operators
+            ** Join Creation Operators
+            ** Transformation Operators
+            ** Filtering Operators
+            ** Join Operators
+            ** Multicasting Operators
+            ** Error Handling Operators
+            ** Utility Operators
+            ** Conditional and Boolean Operators
+            ** Mathematical and Aggregate Operators
+        Subscription
+        Subject
+        Scheduler
+
+      https://www.learnrxjs.io/
+      https://reactive.how/
+     
+   https://itnext.io/javascript-promises-vs-rxjs-observables-de5309583ca2
+
+
+
+Angular
+----------------
+
+=> https://angular.io/docs
+
+=> https://codecraft.tv/courses/angular/quickstart/overview/
+
+=> course:
+    1.https://angular-university.io/course/getting-started-with-angular2
+    2. https://angular-university.io/course/angular-course
+    3. https://angular-university.io/course/angular2-http
+    4. https://angular-university.io/course/rxjs-course
+    5. https://angular-university.io/course/angular2-forms
+    6. https://angular-university.io/course/angular2-routing
+    7. https://angular-university.io/course/angular2-routing
+
+
+
+
+examples:
+     https://github.com/IgniteUI/igniteui-angular/blob/ab8479f0b48912f555f7ab7fbb2c0fd37c6aed4d/projects/igniteui-angular/src/lib/directives/mask/mask.directive.ts

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HTML | DOM</title>
+	<link rel="stylesheet" href="./ShoppingList.css">
+</head>
+<body>
+    <div id="wrapper">
+	    <header>
+	    	<div id="page-banner">
+	    		<h1 class="title">Shop-a-hole</h1>
+				<p>Shopping List</p>
+				<form id="search-items">
+					<input type="text" placeholder="Search items..." />
+				</form>
+	    	</div>
+	    </header>
+	    <div id="shopping-list">
+	    	<h2 class="title">Shopping Cart</h2>
+	    	<ul>
+	    		<li>
+	    			<span class="name">3% Milk</span>
+	    			<span class="delete">delete</span>
+	    		</li>
+	    		<li>
+	    			<span class="name">Seedless Strawberries</span>
+	    			<span class="delete">delete</span>
+	    		</li>
+	    		<li>
+	    			<span class="name">fat-free humus</span>
+	    			<span class="delete">delete</span>
+	    		</li>
+	    		<li>
+	    			<span class="name">Unsour cream</span>
+	    			<span class="delete">delete</span>
+	    		</li>
+	    	</ul>
+	    </div>
+	    <form id="add-item-to-shop">
+	    	<input type="text" placeholder="What you wanna buy today..." />
+	    	<button>Add</button>
+	    </form>
+	</div>
+	<!-- <hr>
+	<div id="learn-wrapper">
+		<h2>HTML DOM Practice</h2>
+		<p id="dom-practice"></p>		
+	</div> -->
+    <script src="../JS/shoppingList.js"></script>
+</body>
+</html>
