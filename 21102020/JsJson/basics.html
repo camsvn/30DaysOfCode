@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON | Basics</title>
+</head>
+<body>
+    <h2>JSON Stringify & Parse</h2>
+
+    <p id="demo" style="line-height: 32px;margin-left: 16px;"></p>
+
+    <script>
+        var myObj, myJSON, text, obj, content='';
+
+        myObj = { name: "John", age: 31, city: "New York" };
+        content += `<b>type of Initialized JSObject: </b> ${typeof myObj} <br>`
+        
+        // Stringify data:
+        myJSON = JSON.stringify(myObj);
+        content += `<b>stringify JSObject:</b> ${myJSON} of type ${typeof myJSON} <br>`
+        
+        // Parse data:
+        obj = JSON.parse(myJSON);
+        content += `<b>type of parsed JSON:</b> ${typeof obj} <br>`
+
+        document.getElementById('demo').innerHTML = content
+    </script>
+
+</body>
+</html>
+
+<!-- NOTES
+JSON: Name Value Pair
+JSON Keys require double quotes.
+JSON Values can be:
+    string - must in DOUBLE quotes . 
+    number
+    boolean
+    JSON Object
+    Array
+    null
+JSON values CANNOT be:
+    function
+    Date
+    undefined
+-->

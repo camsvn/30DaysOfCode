@@ -1,0 +1,66 @@
+<!-- WEB WORKER NOTES
+ !-- Web Workers are a simple means for web content to run scripts in background threads.
+ !-- worker can send messages to the JavaScript code 
+ that created it, by posting messages to an event handler specified by that code (and vice versa).
+ 
+ !-- A worker is an object created using a constructor Worker()
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Worker</title>    
+</head>
+<body>
+    <header>
+        <h2>Web Worker</h2>
+    </header>
+    <main>
+        <button id="wwfetch">Web Worker Fetch</button>
+        <button id="wwterminate">Web Worker Terminate</button>
+        <pre id="output"></pre>
+    </main>
+</body>
+<script>
+    let output = document.getElementById("output")
+    let wwfetch = document.getElementById("wwfetch")
+    let wwterminate = document.getElementById("wwterminate")
+    let worker;
+    
+    document.addEventListener('DOMContentLoaded', init);
+        
+        function init(){
+            worker = new Worker('web-worker.js');
+            worker.addEventListener('message', workerMessaged);
+            worker.addEventListener('error', workerError);
+            
+            worker.postMessage('Get Started');
+
+            wwterminate.addEventListener('click' , () => {
+                worker.terminate();               
+            })
+
+            wwfetch.addEventListener('click' , () => {
+                worker.postMessage('Fetch');                
+            })
+            
+            output.addEventListener('click', ()=>{
+                worker.postMessage('Other');
+            })
+        }
+        
+        function workerMessaged(ev){
+            let data = ev.data;
+            
+            output.textContent += data + '\n';
+        }
+        
+        function workerError(err){
+            console.log(err.message, err.filename);
+        }
+</script>
+</html>
+
+<!-- https://www.youtube.com/watch?v=EiPytIxrZtU&ab_channel=SteveGriffith -->

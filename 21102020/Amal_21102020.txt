@@ -1,0 +1,20 @@
+Drag and Drop
+-preventDefault()
+-dataTransfer
+*getData()
+*setData()
+-DataTransferItem
+-DataTransferItemList
+
+JSON: key-value pair
+-Datatypes
+-stringify()
+-parse()
+-Json Objects
+-Arrays
+
+iFrame:
+-sandbox
+-referer policy
+
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX | Learn</title>
+</head>
+<body>
+    <button id="ajx">Make a GET Request</button>
+    <button id="ajxPost" onClick="loadDoc()">Make a POST Request</button>
+    <p id="op"></p>
+</body>
+<script>
+    (function(){
+        var httpRequest;
+        var op = document.getElementById('op');
+        document.getElementById('ajx').addEventListener('click', mkRequest)
+
+        function mkRequest(){
+            httpRequest = new XMLHttpRequest();
+
+            httpRequest.onreadystatechange = alertContents;
+            httpRequest.open('GET', '../WebWorker/webwoker.html');
+            httpRequest.send();
+        }
+
+        function alertContents () {
+            if(httpRequest.readyState === XMLHttpRequest.DONE){
+                if(httpRequest.status === 200){
+                    alert("Get Web Worker Html page")
+                    op.innerHTML+=httpRequest.responseText;
+                } else {
+                    alert("There was a problem with the request ")
+                }
+            }
+        }
+    })();
+
+    function loadDoc(){
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            op.innerHTML+= this.responseText;
+            }
+        }
+
+        xhttp.open("POST", "http://dummy.restapiexample.com/api/v1/create", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("name=test&salary=123&age=23");
+    }
+</script>
+</html>

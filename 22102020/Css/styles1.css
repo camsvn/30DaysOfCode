@@ -1,0 +1,175 @@
+/* CONFLICTING CSS
+-cascade : order of CSS rules matter | same specificity ? choose latest
+      Source order
+      Specificity
+      Importance
+-specificity : 
+      Inline styles -1000
+      IDs - 100
+      Classes, attributes and pseudo-classes - 10
+      Elements and pseudo-elements - 1
+-inheritance
+
+
+*****
+pseudo-classes : target some bit of your document that is in a certain state, behaving as if you had added a class into your HTML
+pseudo-elements :: act as if you had added a whole new HTML element into the markup
+
+Generate Content using ::before ::after
+
+***
+combinators:
+    descendant selector (space)
+    child selector (>)
+    adjacent sibling selector (+)
+    general sibling selector (~)
+
+
+*/
+#one{
+  background-color: red;
+}
+
+.test {
+  background-color: green;
+}
+
+ul{
+    color: blue;
+}
+/* inheritence */
+h2{
+    color:green;
+}
+/* type */
+.box {
+    width: 320px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 0;
+  }
+
+/* class */
+.highlight {
+    background-color: yellow;
+}
+h1.highlight {
+    background-color: pink;
+}
+#one {
+    background-color: yellow;
+}
+
+/* pseudocode class */
+article p:first-child {
+    font-size: 120%;
+    font-weight: bold;
+}  
+
+a:hover {
+    color: deeppink;
+  text-decoration: none;
+}
+
+.box{
+    border: 2px solid red;
+}
+
+.box::before {
+    content: "before";
+    display: block;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    background-color: rebeccapurple;
+    border: 1px solid black;
+    border-radius: 25px;
+}  
+
+.box::after {
+  content: "😎";
+}
+/* after, first line,first letter*/
+
+/*Box Model*/
+.boxmodel{
+  background-color: greenyellow;
+  font-size: larger;
+  text-align: center;
+  padding: 50px;
+  border: 1px solid black;
+  margin: 20px;
+  border: 15px solid black;
+  outline: double;
+  outline-color: red;
+  /* inline-size: 50px; */
+
+}
+
+/* combinators */
+h1 + p {
+    font-weight: bold;
+    background-color: #333;
+    color: rgb(151, 59, 59);
+    padding: 10px;
+}  
+
+/* box model */
+.box {
+    border: 5px solid rebeccapurple;
+    background-color: lightgray;
+    padding: 40px;
+    margin: 40px;
+    width: 300px;
+    height: 150px;
+}
+  /* margin collpase */
+.one {
+  margin-bottom: 50px;
+  border: solid;
+  border-color: red;
+}
+
+/* padding,border */
+.two {
+    padding: 20px;
+  margin-bottom: 50px;
+  border: solid;
+  border-color: red;
+  border-top-style: dotted;
+}
+.a {
+  border: solid;
+  background-color: rgb(86, 153, 86);
+  background-color: rgb(179,57,81);
+  color: rgb(221, 33, 33);
+  text-decoration: none;
+  padding: 10px;
+}
+.ccc{
+    background-image: none;
+    background-repeat: no-repeat;
+}
+
+/* vertical writting */
+h5 {
+  writing-mode: vertical-rl;
+  border: 5px solid;
+  width: 21px;
+  height: 173px;
+  background-color: azure;
+  inline-size: 205px;
+}
+/* overflow */
+.zzz {
+  border: 1px solid #333333;
+  width: 200px;
+  height: 100px;
+  overflow: scroll;
+}
+
+/* table */
+table, th, td {
+  border: 1px solid black;
+  background-color: pink;
+}

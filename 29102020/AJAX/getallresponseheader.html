@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+
+<p>The getAllResponseHeaders() function returns all the header information of a resource. </p>
+
+<p id="demo"></p>
+<p>Last modified: <span id="abc"></span></p>
+<script>
+
+
+
+var xhttp = new XMLHttpRequest();
+//  function to be called when the readyState property changes//
+ xhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("demo").innerHTML = this.getAllResponseHeaders();
+  }
+};
+
+xhttp.open("GET", "ajax-info.txt", true);
+xhttp.send();
+
+
+
+// getresponnseheader//
+var xhttp=new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("abc").innerHTML = this.getResponseHeader("Last-Modified");
+  }
+};
+xhttp.open("GET", "ajax-info.txt", true);
+xhttp.send();
+
+
+</script>
+
+</body>
+</html>

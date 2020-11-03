@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<style>
+table,th,td {
+  border : 1px solid black;
+}
+th,td {
+  padding: 5px;
+}
+</style>
+
+
+
+<body>
+
+<h2>AJAX XML</h2>
+
+<button type="button" onclick="loadDoc()">Get my collection</button>
+<br><br>
+<table id="demo"></table>
+
+<script>
+
+
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  
+//  function to be called when the readyState property changes//
+ xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction(this);
+    }
+  };
+
+
+//   opening the catlog asynch as true//
+  xhttp.open("GET", "catlog-cd.xml", true);
+  xhttp.send();
+
+}
+
+// function statement declares function 
+// a declared function is used for later use or execute late//
+function myFunction(xml) {
+
+  var i;
+  var xmlDoc = xml.responseXML;
+//   works both xml and html and its null//
+
+
+  var table="<tr><th>Artist</th><th>Title</th></tr>";
+
+
+   var x = xmlDoc.getElementsByTagName("CD");
+//   returns collectn of elemts (child element) with speciffied tag name//
+
+
+    for (i = 0; i <x.length; i++) { 
+    table += "<tr><td>" +
+    x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+    "</td></tr>";
+  }
+  document.getElementById("demo").innerHTML = table;
+}
+</script>
+
+</body>
+</html>

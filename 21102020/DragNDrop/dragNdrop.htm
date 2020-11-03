@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Drag and Drop</title>
+<style>
+#div1, #div2 {
+  float: left;
+  width: 45%;
+  height: 600px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
+
+</head>
+    <body>
+
+    <h2 style="text-align: center;">Drag and Drop</h2>
+
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <img  src="https://www.jcpl.org/wp-content/uploads/2018/12/DoodleWordArt_2-blog-768x383.jpg"
+            draggable="true"
+            ondragstart="drag(event)"
+            id="drag1"
+            width="100%"
+            height="60%"
+        >
+    </div>
+
+    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+    </body>
+
+    <script>
+        function allowDrop(ev) {
+          ev.preventDefault();
+          ev.dataTransfer.dropEffect = "move";
+        }
+        
+        function drag(ev) {
+          ev.dataTransfer.setData("text", ev.target.id);
+        }
+        
+        function drop(ev) {
+          ev.preventDefault();
+          var data = ev.dataTransfer.getData("text");
+          console.log(data);
+          ev.target.appendChild(document.getElementById(data));
+        }
+        </script>
+</html>
+
+<!-- NOTES
+The HTML Drag and Drop interfaces are DragEvent, DataTransfer, DataTransferItem
+
+DataTransfer object is used to hold the data that is being dragged during a drag and drop operation
+
+dataTransfer property which contains a list of drag data items
+Each item in the list is a DataTransferItem object.
+
+DataTransfer vs DataTransferItem
+DT uses the synchronous getData() 
+DTI asynchronous getAsString() method.
+-->

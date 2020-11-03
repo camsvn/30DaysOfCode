@@ -1,0 +1,95 @@
+// Import Scss
+@import "./reset.scss";
+@import "variables";
+@import "./mixins.scss";
+
+
+#main-nav {
+    background: $deepBlue;
+    //NestingStyles
+    ul {
+        width: 100%; 
+        @include clearFix       
+    }
+    li{
+        float: left;
+        // width: 14%;
+        width: (100% / 6);
+        @include mQ(600px){
+            width: 100%;
+        }
+    }
+    a{
+        text-decoration: none;
+        color: $offWhite;
+        padding: 16px;
+        display: block;
+        text-align: center;
+        //Pseudo Class
+        &:hover{
+            background: lighten($color: $deepBlue, $amount: 10); //Sass Fuctions
+        }
+    }
+}
+
+section h1{
+    font-size: $sectionHeading;
+    color: $deepBlue;
+}
+
+.lead-banner{
+    @include banner;
+    text-align: right;
+}
+
+.lessons-banner{    
+    @include banner;
+    li{
+        text-transform: uppercase;
+        font-size: 20px;
+        max-width: 500px;
+        margin: 60px 0;
+    }
+    span, li{
+        @include mQ(950px,851px){
+            font-size: 20px;
+            margin: 30px 0;
+        }
+        @include mQ(850px){
+            font-size: 16px;
+            margin: 15px 0;
+        }
+    }
+}
+
+#services{
+    margin-bottom: 60px;
+    li{
+        float: left;
+        box-sizing: border-box;
+        text-align: center;
+        width: (100% / 3);
+    }
+    img{
+        width: 60%;
+        margin: 20px 20%;
+    }
+    a{
+        text-decoration: none;
+        color: $deepBlue;
+        font-weight: bold;
+        &:hover{
+            color: complement($color: $deepBlue);
+        }
+    }
+    ul{
+        @include clearFix;
+    }
+}
+
+#projects li{
+    @include grid(5,2%);
+    img{
+        width: 100%;
+    }
+}

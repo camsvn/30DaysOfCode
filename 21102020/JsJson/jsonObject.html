@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON | Basics</title>
+</head>
+<body>
+    <h2>JSON Object</h2>
+    
+    <h2 style="margin-left: 16px;">Looping Object</h2>
+    <div style="margin-left: 32px;">
+        <h3 style="margin-bottom: 5px;">Get Keys</h3>
+        <p id="getKeys" style="line-height: 20px;margin-left: 16px;"></p>
+        <h3 style="margin-bottom: 5px;">Get Values</h3>
+        <p id="getValues" style="line-height: 20px;margin-left: 16px;"></p>
+        <h3 style="margin-bottom: 5px;">Nested JSON: Values of "Cars"</h3>
+        <p id="ngetValues" style="line-height: 20px;margin-left: 16px;"></p>
+        <h3 style="margin-bottom: 5px;">Edit a Value</h3>
+        <p id="editValue" style="line-height: 20px;margin-left: 16px;"></p>
+        <h3 style="margin-bottom: 5px;">Delete a Value</h3>
+        <p id="delValue" style="line-height: 20px;margin-left: 16px;"></p>
+    </div>
+
+    
+
+    <script>
+        var myObj;
+
+        myObj = {
+                    "name":"John",
+                    "age":30,
+                    "cars": {
+                        "car1":"Ford",
+                        "car2":"BMW",
+                        "car3":"Fiat"
+                    }
+                }
+
+        // myObj = { "name":"John", "age":30, "car":null };
+        for (key in myObj) {
+            document.getElementById('getKeys').innerHTML += key + "<br>"
+            document.getElementById('getValues').innerHTML += myObj[key] + "<br>"
+        }
+
+        for (key in myObj.cars){
+            document.getElementById('ngetValues').innerHTML += myObj.cars[key] + "<br>"
+        }
+
+        myObj.cars.car3 = 'Tata' 
+        for (key in myObj.cars){
+            document.getElementById('editValue').innerHTML += myObj.cars[key] + "<br>"
+        }
+
+        delete myObj.cars.car3 
+        for (key in myObj.cars){
+            document.getElementById('delValue').innerHTML += myObj.cars[key] + "<br>"
+        }
+
+    </script>
+
+</body>
+</html>
+
+<!-- NOTES
+JSON: Name Value Pair
+JSON Keys require double quotes.
+JSON Values can be:
+    string - must in DOUBLE quotes . 
+    number
+    boolean
+    JSON Object
+    Array
+    null
+JSON values CANNOT be:
+    function
+    Date
+    undefined
+-->

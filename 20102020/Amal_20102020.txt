@@ -1,0 +1,28 @@
+HTML DOM Elements (Properties and Methods):
+-attributes
+-className
+-cloneNode()
+-blur()
+-click()
+
+HTML Events (object model and api for js):
+-getElementBy id,class,tag
+-querySelectors
+-innerHTML
+-setAttribute
+-createElement
+-appendChild
+-removeChild
+-onclick
+-preventDefault()
+-onmouseover
+-addEventListener
+-event bubbling / event capturing
+
+OOPS JS Functions:
+-function invocation
+-function call() vs apply()
+-function closure //avoid variable hoisting
+*let vs var
+*nested function
+*self invoking function

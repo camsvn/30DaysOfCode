@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON | Basics</title>
+</head>
+<body>
+    <h2>JSON Parse Exceptions</h2>
+    <div style="margin-left: 32px;">
+        <h3 style="margin-bottom: 5px;">Parsing Date</h3>
+        <p id="pdate" style="line-height: 20px;margin-left: 16px;"></p>
+        <h3 style="margin-bottom: 5px;">Parsing Function</h3>
+        <p id="pfunc" style="line-height: 20px;margin-left: 16px;"></p>
+    </div>
+
+    <script>
+        var myObj = '{ "name":"John", "age":"function () {return 30;}", "birth":"1986-12-14", "city":"New York"}';        
+
+        var obj = JSON.parse(myObj);
+        document.getElementById('pdate').innerHTML +=  obj.birth 
+        
+        obj.birth = new Date(obj.birth);
+        document.getElementById('pdate').innerHTML += " ↠ " + obj.birth + "<br>"
+
+        // second parameter, of the JSON.parse() function, called reviver || checks each property, before returning the value
+        
+        obj.age = eval("(" + obj.age + ")");
+        document.getElementById('pfunc').innerHTML += obj.age();
+
+        
+    </script>
+
+</body>
+</html>
+
+<!-- NOTES
+JSON: Name Value Pair
+JSON Keys require double quotes.
+JSON Values can be:
+    string - must in DOUBLE quotes . 
+    number
+    boolean
+    JSON Object
+    Array
+    null
+JSON values CANNOT be:
+    function
+    Date
+    undefined
+-->

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        li {
+            list-style-type: none;
+        }
+
+        #panel, #flip {
+            padding: 5px;
+            text-align: center;
+            background-color: #e5eecc;
+            border: solid 1px #c3c3c3;
+        }
+
+        #panel {
+            padding: 50px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2 id="heading">This is a heading (Double Click Me!)</h2>
+
+    <p class="firstPara">This is a paragraph. (click me!)</p>
+    <p>This is another paragraph.(Click me!)</p>
+
+    <div id="flip">Click to slide down panel / Double Click to slide panel up</div>
+    <div id="panel">Hello world!</div>
+
+    <h3>Outputs</h3>
+    <ul id="output">
+
+    </ul>
+    <script src="./jQBasics.js"></script>
+</body>
+</html>

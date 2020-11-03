@@ -1,0 +1,10 @@
+GIT:
+-Setup
+-Init
+-Staging
+-Snapshot
+-Branching
+-Merging
+
+Documenting JS : JSDoc
+Documenting CSS

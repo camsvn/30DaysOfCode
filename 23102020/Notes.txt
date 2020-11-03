@@ -1,0 +1,43 @@
+CSS Layout:
+-FlexBox : a single-direction layout concept. //default: row (ltr). {column (top2bottom)}
+    * flex direction : row, column
+        // Main Axis / Cross Axis
+    * justify-content / align-items
+        // Justify Content : Along Main Axis
+        // Align Items : Along Cross Axis
+    * order
+    * flex-grow
+    * flex-wrap
+    * flex-shrink
+    * flex-flow // flex-direction flex-wrap
+    * flex-basis
+    * flex-wrap
+    * flex //default: 0 1 auto //flex-grow flex-shrink flex-basis
+-Grid
+    *Defineing Grid
+    *fr unit
+    *grid-grap // grid-row-gap, grid-cloumn-gap (old) (new↠) row-gap , column-gap
+
+-Floats
+
+- Normal flow
+    *Block
+    *Inline
+
+-Positioning
+-Table layout
+
+-Multiple-column layout
+    *column-count
+    *column-width
+    *column-gap
+    *column-rule
+    *column-span : all
+    *break-inside : avoid //Fragmentation
+    *page-break-inside : avoid
+
+Client Side Storage:
+-WebAPI
+    * sessionStorage :  persists data for as long as the browser is open (the data is lost when the browser is closed)
+    * localStorage :  persists data even after the browser is closed and then opened again. generally more useful.
+-IndexedDB

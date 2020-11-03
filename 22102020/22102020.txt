@@ -1,0 +1,9 @@
+Javascript Document Manipulation
+-grabbing elements
+-creating & placing new nodes
+-manipulating styles
+
+CSS:
+-Building Blocks
+-Css Overview
+-Selectors

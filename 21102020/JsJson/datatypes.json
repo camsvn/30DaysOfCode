@@ -1,0 +1,7 @@
+{
+    "employee":[ 
+        {"name":"John", "age":30, "city":"New York", "isMale": true, "hobbies": ["Reading", "Riding"] },
+        {"name":"Anna", "age":52, "city":"New Jersy", "isMale": false, "hobbies": null},
+        {"name":"Peter", "age":14, "city":"Cannada", "isMale": true, "hobbies": ["Coding", "Hockey"] }
+    ]
+}

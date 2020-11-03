@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON | Basics</title>
+</head>
+<body>
+    <h2>JSON Array</h2>
+    
+    <h2 style="margin-left: 16px;">Looping Object</h2>
+    <div style="margin-left: 32px;">
+        <h3 style="margin-bottom: 5px;">Nested JSON: Values of "Car Models"</h3>
+        <p id="ngetValues" style="line-height: 20px;margin-left: 16px;"></p>
+    </div>
+
+    
+
+    <script>
+        var myObj;
+
+        myObj = {
+                "name":"John",
+                "age":30,
+                "cars": [
+                    { "name":"Ford", "models":[ "Fiesta", "Focus", "Mustang" ] },
+                    { "name":"BMW", "models":[ "320", "X3", "X5" ] },
+                    { "name":"Fiat", "models":[ "500", "Panda" ] }
+                ]
+                }
+
+        for (i in myObj.cars){
+            for(j in myObj.cars[i].models)
+            document.getElementById('ngetValues').innerHTML += myObj.cars[i].models[j] + "<br>"
+            document.getElementById('ngetValues').innerHTML += '-----------------------' + "<br>"
+        }
+
+    </script>
+
+</body>
+</html>
+
+<!-- NOTES
+JSON: Name Value Pair
+JSON Keys require double quotes.
+JSON Values can be:
+    string - must in DOUBLE quotes . 
+    number
+    boolean
+    JSON Object
+    Array
+    null
+JSON values CANNOT be:
+    function
+    Date
+    undefined
+-->
