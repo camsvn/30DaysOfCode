@@ -1,0 +1,11 @@
+(03/11/2020 - 04/11/2020)
+RxJs:
+    Observables
+        create
+        subscribe
+        execute
+        dispose
+    Observer
+    Subscription
+    Hot vs Cold Observables
+

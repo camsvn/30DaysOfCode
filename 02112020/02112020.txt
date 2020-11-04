@@ -1,0 +1,6 @@
+jQuery:
+	-Basics
+	-Selectors
+	-Events
+	-Effects
+	-DOM

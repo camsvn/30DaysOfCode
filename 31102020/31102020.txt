@@ -1,15 +1,25 @@
 TypeScript:
--Generic
--Interfaces
--Tuples
--Types
-  *Static
-    /Built-in
-	-Number
-	-String
-	-Boolean
-	-Void
-	-Null
-    /User-Defined
-  *Generics
-  *Decorators
+	-Generic
+	-Interfaces
+	-Tuples
+	-Types
+	*Static
+		/Built-in
+		-Number
+		-String
+		-Boolean
+		-Void
+		-Null
+		/User-Defined
+		-Array
+		-Touple
+		-Enum
+		-Functions
+		-Class
+		-Interfaces
+	*Generics
+	*Decorators
+	*Date Object
+	-Map
+	-Set
+	-AccessModifiers

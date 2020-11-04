@@ -1,5 +1,5 @@
 {
-  "name": "rxjs-boilerplate",
+  "name": "rxjs-typescript",
   "version": "1.0.0",
   "description": "RxJS Boilerplate",
   "main": "app",
@@ -13,7 +13,7 @@
     "build": "npm run build:types && npm run build:js",
     "lint": "eslint src/**/*.ts"
   },
-  "author": "Stefan Estrada",
+  "author": "Amal Salvin Joseph",
   "license": "MIT",
   "dependencies": {
     "dompurify": "^1.0.9",
