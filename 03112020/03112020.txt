@@ -9,3 +9,28 @@ RxJs:
     Subscription
     Hot vs Cold Observables
 
+05/11/2020
+RxJS Operators:
+    ajax
+    empty
+    from
+    fromEvent
+    interval
+    of
+    range
+    throwError
+    timer
+    iif
+    concat
+    zip
+    map
+    mapTo
+    filter
+    first
+    last
+    take
+    throttle
+    share
+    catchError
+
+

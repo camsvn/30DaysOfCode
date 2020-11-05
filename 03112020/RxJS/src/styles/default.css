@@ -27,17 +27,25 @@ li{
     margin: 0 auto 10px;
     cursor: pointer;
     text-decoration: none;
-  }
+}
+
 .home{
   width: 115px;
 }
+
 section{
   background: #5a5757; 
   width: 300px;
   padding: 20px;
   margin: 10px auto;
   text-align: center;
+  border-radius: 5px;
 }
+
 .aside-title{
   color: white;
+}
+
+.modules-warpper{
+  margin: 20px 0;
 }

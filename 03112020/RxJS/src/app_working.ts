@@ -13,7 +13,7 @@
 
 import {Observable} from 'rxjs';
 import {share} from 'rxjs/operators'
-import {fontSize, sleep, addItem} from './helpers' 
+import {fontSize, sleep, addItem} from './components/helpers' 
 
 /* ******************BEGIN Observables************************ */
 

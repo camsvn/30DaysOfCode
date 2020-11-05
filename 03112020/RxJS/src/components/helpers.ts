@@ -9,7 +9,8 @@ export function addItem(val:any,id:number,desc:string='',h2:(boolean|fontSize)=f
     var liNode = document.createElement('li');
     var ul = document.getElementById(`output${id}`);
     
-    liNode.innerText = `${val} ${desc!=='' ? `(${desc})` : ''}`;
+    // liNode.innerText = `${val} ${desc!=='' ? `(${desc})` : ''}`;
+    liNode.innerHTML = `${val} ${desc!=='' ? `(<b>${desc}</b>)` : ''}`;
     if (h2 !== null && h2 && typeof h2 !== 'boolean'){
          liNode.style.fontSize = h2;
         liNode.style.fontWeight = "bold";

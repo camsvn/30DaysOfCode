@@ -96,6 +96,13 @@ sleep(6500)
                     observer.next('Notifications Every 2s')
                 },2000)
             }).pipe(share());
+            /*
+            *   Pipeable Opeartor: A Pipeable Operator is a function that takes an Observable as its input and returns another Observable.
+            *                      It is a pure operation: the previous Observable stays unmodified
+            * 
+            *   pipe() : Pipeable Operators could be used like ordinary functions | op()(obs)
+            *           .pipe() makes it easier to read.
+            */
 
             const warmObserver1 = warmObservable.subscribe((val: any) => {
                 addItem(val,1,'Observer 1')
