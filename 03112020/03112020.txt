@@ -33,4 +33,48 @@ RxJS Operators:
     share
     catchError
 
+06/11/2020
+RxJS Join | Transformation | Filtering | Multicast | Utility | Mathematical
+    combineLatest
+    concat
+    merge
+
+    buffer
+    map
+    mapTo
+    mergeMap
+    groupBy
+
+    elementAt
+    filter
+    first
+    last
+    take
+    takeUntil
+    throttle
+    throttleTime
+
+    concatAll
+    mergeAll
+    startWith
+    withLatestFrom
+
+    multicast
+    share
+
+    tap
+    delay
+    timeout
+
+    find
+    findIndex
+
+    max
+    reduce
+
+    Subject (as Observables | as Observer)
+    BehaviorSubject
+    ReplaySubject
+    AsyncSubject
+
 

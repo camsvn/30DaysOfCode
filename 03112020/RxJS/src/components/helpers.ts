@@ -33,4 +33,10 @@ export function addItem(val:any,id:number,desc:string='',h2:(boolean|fontSize)=f
 export function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+export function getTime(){
+    let time = new Date;
+
+    return `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`
+}
 //eof Helper function
