@@ -1,0 +1,13 @@
+First ,verify your NPM cached memory
+
+npm cache verify
+then try :
+
+npm cache clean --force
+npm install –g @angular/cli@latest 
+ng new <YourProjectName>
+If the problem persists, then try the following
+
+npm cache clean --force
+npm update
+ng new <YourProjectName>
