@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX | Load Image</title>
+</head>
+<body>
+    <div style="text-align:center">  
+        <div id="demo"></div>
+        <input type="button" value="Load Image" onclick="loadimg()"/>
+        <input type="button" value="Load ErrorImage" onclick="loadimg(true)"/>
+    </div>
+</body>
+<script>
+    function errorloading (){        
+        document.getElementById('demo').innerHTML='<cite>Error loading Image</cite>'
+    }
+
+    function loadimg(err=false)
+    {
+        var xmll=new XMLHttpRequest;
+        xmll.onreadystatechange=function()
+        {
+            if(this.readyState==4 && this.status==200)
+            {
+                var img;
+                var xml=xmll.responseXML;
+                var imgxml=xml.getElementsByTagName("photo");
+                console.log(imgxml)
+                err ? 
+                img="<img src='"+imgxml[0].getElementsByTagName("img")[1].childNodes[0].nodeValue+"' onerror='errorloading()'>" :
+                img="<img src='"+imgxml[0].getElementsByTagName("img")[0].childNodes[0].nodeValue+"' onerror='errorloading()'>" ;
+                document.getElementById("demo").innerHTML=img;
+            }
+        };
+        xmll.open("GET","loadimg.xml",true);
+        xmll.send();
+    }
+</script>
+</html>
