@@ -1,0 +1,27 @@
+<p>It's rendered by Severs component</p>
+<label>Server Name</label>
+<!-- $event - reserved variable name represents the data emitted with that event -->
+<input 
+type="text" 
+class="form-control mb-3"
+(input)="onUpdateServerName($event)"
+placeholder="One-way Data Binding">
+
+<input 
+type="text" 
+class="form-control mb-3"
+[(ngModel)]="serverName"
+placeholder="Two-way Data Binding">
+
+<p>{{serverName}}</p>
+
+<button class="btn btn-primary mb-3"
+[disabled]="!allowNewServers"
+(click)="onCreateServer()"
+>Add Servers</button>
+<p [innerText]="displayStatus()"></p>
+<p>{{serverCreationStatus}}</p>
+<cite>
+    <app-server></app-server>
+    <app-server></app-server>
+</cite>

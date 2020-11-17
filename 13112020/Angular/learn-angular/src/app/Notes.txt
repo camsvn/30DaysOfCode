@@ -1,0 +1,21 @@
+Angular Notes:
+
+Data binding = communication
+
+communication bw TS code of commponent (bussiness logic)
+and the Template(what user see's)
+
++ diff types:
+TS -> HTML 
+    ● string interpolation {{title}}
+        Any expresson which returns string
+    ● property binding [property] = "data" 
+            can binding t properties of HTML elements, Directives, Our own Component
+
+HTML -> TS
+    (eg: button click on template trigger code in TS)
+    ● Event Binding (event) = "expression"
+
+Two-way DataBinding: [(ngModel)] = "data"
+    (react event and output something at the same time)
+    TS ⇌ HTML
