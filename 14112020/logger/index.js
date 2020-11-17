@@ -1,5 +1,10 @@
 const {createLogger, format, transports} = require('winston');
 
+/*
+ * A log file is a file that records either events that occur in an operating system or other softwares, 
+ * or messages between different users of a communication software.
+ */
+
 const logger = createLogger({
     level: 'info',
     format: format.combine(
