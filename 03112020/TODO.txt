@@ -15,8 +15,7 @@ BehaSubj
 
 --------------
 js oops
-bitbucket pull req
-logger
 unit test cases
 npm | private public repo
 d3
+JQuery - Ajax
