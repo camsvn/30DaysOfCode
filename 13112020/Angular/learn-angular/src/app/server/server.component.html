@@ -1,1 +1,5 @@
-<p>Server Component Renders here</p>
+<p 
+    [ngStyle]="{backgroundColor: getColor(), padding: '5px 10px', 'border-radius': '5px'}"
+    [ngClass]="{online : serverStatus === 'online'}">
+    Server, {{serverName}} with ID {{serverId}} is {{getServerStatus()}}
+</p>

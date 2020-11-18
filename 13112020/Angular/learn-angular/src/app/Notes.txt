@@ -19,3 +19,26 @@ HTML -> TS
 Two-way DataBinding: [(ngModel)] = "data"
     (react event and output something at the same time)
     TS ⇌ HTML
+
+
+--------------
+
+Directives: @Directive()
+    are the instructions in DOM (components are such kind of instructions | components are Directives with template)
+    
+    Directives without template:
+        (selector of a directive can be just like a selector of a component)
+        but
+        typically add directives with an attribute selector
+        <p appTurnGreen>Recieve a green bacground!</p>
+
+    Structural Directives: Changes the structure of DOM
+        ● *ngIf - It either adds the element of doesn't add.
+        ● *ngFor - repeat a node for each item in a list.
+        ● *ngSwitch - a set of directives that switch among alternative views.
+
+    Attribute Directives: Changes only the element they were paced on
+        (NgModules such as the RouterModule and the FormsModule define their own attribute directives)
+        ● ngStyle - add / remove set of HTML styles - expects a JS Object
+        ● ngClass - add / remove set of css Class
+        ● ngModel - two-way dataBinding to an HTML form element

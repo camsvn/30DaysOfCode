@@ -2,26 +2,48 @@
 <label>Server Name</label>
 <!-- $event - reserved variable name represents the data emitted with that event -->
 <input 
-type="text" 
-class="form-control mb-3"
-(input)="onUpdateServerName($event)"
-placeholder="One-way Data Binding">
+    type="text" 
+    class="form-control mb-3"
+    (input)="onUpdateServerName($event)"
+    placeholder="One-way Data Binding">
 
 <input 
-type="text" 
-class="form-control mb-3"
-[(ngModel)]="serverName"
-placeholder="Two-way Data Binding">
+    type="text" 
+    class="form-control mb-3"
+    [(ngModel)]="serverName"
+    placeholder="Two-way Data Binding">
 
 <p>{{serverName}}</p>
 
 <button class="btn btn-primary mb-3"
-[disabled]="!allowNewServers"
-(click)="onCreateServer()"
->Add Servers</button>
+    [disabled]="!allowNewServers"
+    (click)="onCreateServer()"
+>
+    Add Servers
+</button>
+
 <p [innerText]="displayStatus()"></p>
-<p>{{serverCreationStatus}}</p>
-<cite>
-    <app-server></app-server>
-    <app-server></app-server>
-</cite>
+
+<p>{{serverCreationStatus}} <cite>- string interpolation | event binding example</cite></p>
+<p *ngIf="serverCreated ; else noServer">Server was created! Name is {{serverName}} <cite>- directives example (*ngIf)</cite></p>
+<!-- 
+  --    #noServer - local reference
+  --    ngTempate - a directive, component used to mark places in DOM
+  -->
+<ng-template #noServer>
+    <p>No new servers are created!
+         <cite>- directives example (*ngIf ; else)</cite>
+    </p>
+</ng-template>
+<div class="card w-50">
+    <h4 class="ml-2 mt-3">Server Status</h4>
+    <hr>
+    <div style="margin:10px;">
+        <cite>
+            <app-server *ngFor="let server of servers" [serverName]="server"></app-server>
+            <!-- <app-server></app-server> -->
+        </cite>
+    </div>
+</div>
+<p appHighlight [colorOnClick]="'green'" class="mt-2 w-50">Attribute Directives Example (mouseOver me)</p>
+<!-- <p appHighlight colorOnClick="red" class="mt-2 w-50">Attribute Directives Example (mouseOver me)</p> -->
