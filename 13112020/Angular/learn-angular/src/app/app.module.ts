@@ -5,7 +5,7 @@ import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
-import { HighlightDirective } from './highlight.directive'
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
