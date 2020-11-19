@@ -45,4 +45,12 @@ export class ServersComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onDestroyFirst(){
+    this.servers.splice(0,1);
+  }
+
+  onChangeFirst(){
+    this.servers[0] = 'changed!'
+  }
+
 }

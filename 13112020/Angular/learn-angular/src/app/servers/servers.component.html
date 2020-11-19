@@ -15,12 +15,25 @@
 
 <p>{{serverName}}</p>
 
-<button class="btn btn-primary mb-3"
+<button 
+    class="btn btn-primary mb-3"
     [disabled]="!allowNewServers"
-    (click)="onCreateServer()"
->
+    (click)="onCreateServer()">
     Add Servers
 </button>
+
+<button 
+    class="btn btn-danger mb-3 ml-2"
+    (click)="onDestroyFirst()">
+    Delete First Component
+</button>
+
+<button 
+    class="btn btn-primary mb-3 ml-2"
+    (click)="onChangeFirst()">
+    Change First Component
+</button>
+
 
 <p [innerText]="displayStatus()"></p>
 

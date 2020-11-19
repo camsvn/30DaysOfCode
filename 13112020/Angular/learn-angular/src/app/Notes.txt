@@ -42,3 +42,17 @@ Directives: @Directive()
         ● ngStyle - add / remove set of HTML styles - expects a JS Object
         ● ngClass - add / remove set of css Class
         ● ngModel - two-way dataBinding to an HTML form element
+
+
+--------------
+
+LifeCycle Components:
+
+    ● ngOnChange                - Called after a bound input property changes
+    ● ngOnInit                  - Called once the component is initiaized
+    ● ngDoCheck                 - Called during every change detection run
+    ● ngAfterContentInit        - Called after content (ng-content) has been projected into view
+    ● ngAfterContentChecked     - Called every time the projected content has been checked
+    ● ngAfterViewInit           - Called after components view (and child views) has been initiaized
+    ● ngAfterViewChecked        - Called every time view (and child views) has been checked
+    ● ngOnDestroy               - Called once the component is about to destroy 
