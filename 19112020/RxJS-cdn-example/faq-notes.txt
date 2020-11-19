@@ -1,0 +1,10 @@
+WHY JS MODULE NOT WORKING IN BROWSER?
+
+Unlike regular JavaScript files, 
+modules are subject to Cross-Origin Resource Sharing (CORS) restrictions. 
+They have to be loaded from the same origin,
+and cannot be loaded from the local filesystem. 
+
+If you are loading them from the local file system, move them to a server
+
+---------------
