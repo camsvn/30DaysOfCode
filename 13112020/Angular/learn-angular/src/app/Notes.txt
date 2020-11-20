@@ -56,3 +56,9 @@ LifeCycle Components:
     ● ngAfterViewInit           - Called after components view (and child views) has been initiaized
     ● ngAfterViewChecked        - Called every time view (and child views) has been checked
     ● ngOnDestroy               - Called once the component is about to destroy 
+
+--------------
+
+Dependency Injection:
+
+    Services: 

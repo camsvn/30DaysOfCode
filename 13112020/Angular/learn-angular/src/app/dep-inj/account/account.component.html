@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col">
+    <h5>{{ account.name }}</h5>
+    <hr/>
+    <p>This account is 
+        <span
+        class="block"
+        [ngClass]="{
+          'active': account.status === 'active',
+          'inactive': account.status === 'inactive',
+          'unknown': account.status === 'unknown'
+        }"        
+        >{{ account.status }}</span></p>
+    <div class="mb-2">
+      <button class="btn btn-success mr-2" (click)="onSetTo('active')">Set to 'active'</button>
+      <button class="btn btn-secondary mr-2" (click)="onSetTo('inactive')">Set to 'inactive'</button>
+      <button class="btn btn-info" (click)="onSetTo('unknown')">Set to 'unknown'</button>
+    </div>
+  </div>
+</div>
