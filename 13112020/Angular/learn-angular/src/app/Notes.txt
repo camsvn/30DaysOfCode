@@ -61,4 +61,28 @@ LifeCycle Components:
 
 Dependency Injection:
 
-    Services: 
+    Dependency is a class of ours will depend on
+    Dependency Injection: Injects this dependency (an instance of the Class) into our component automatically.
+    Provide service
+
+    Dependency Injector is actualy a hierarchical injector:
+        it creates an instance of that service for this component & all its child components:            
+                    AppModule (will Recieve same instance of the service Application-wide)
+                        ↧
+                    AppComponent (available for all its child component | but  not other Services )
+                        ↧
+                    Other Component (availabe for the Component and al its child component)
+
+
+ ***************************************
+|  TODO:                                |
+|       Angular Form:                   |
+|           temp driven                 |
+|           reactive Forms              |
+|           dynamic form {form gen}     |
+|                                       |
+|       Routing:                        |
+|           lazy loading                |
+|                                       |
+|       Http:                           |
+ ***************************************

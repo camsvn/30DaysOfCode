@@ -37,7 +37,6 @@ export class ServerComponent implements
     @Input() serverName:string;
 
     constructor(){
-        console.log("Constructor Called!");
         this.serverStatus = Math.random() > 0.5 ? 'online' : 'offine';
     }
 
