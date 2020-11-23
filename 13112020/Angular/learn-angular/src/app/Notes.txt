@@ -74,18 +74,15 @@ Dependency Injection:
                     Other Component (availabe for the Component and al its child component)
 
 
- ***************************************
-|  TODO:                                |
-|       Angular Form:                   |
-|           temp driven                 |
-|           reactive Forms              |
-|           dynamic form {form gen}     |
-|                                       |
-|       Routing:                        |
-|           lazy loading                |
-|                                       |
-|       Http:                           |
- ***************************************
+                             ***************************************
+                            |  TODO:                                |
+                            |       Angular Form:                   |
+                            |           temp driven                 |
+                            |           reactive Forms              |
+                            |           dynamic form {form gen}     |
+                            |                                       |
+                            |       Http:                           |
+                             ***************************************
 
 Routing:
     ng new <project-name> --routing //creates a routing enabled barebone Angular project
@@ -95,3 +92,12 @@ Routing:
         ● Add Routes to your application (routerLink)
         ● Update component with 'router-outlet'
         ● Add ReDirects
+
+(Eager Loading, Lazy Loading, Pre-Loading)
+
+Lazy Loading: "a design pattern that loads NgModules as needed"
+    By default, NgModules are eagerly loaded, 
+    which means that as soon as the app loads,
+    so do all the NgModules, whether or not they are immediately necessary.
+
+    

@@ -7,14 +7,18 @@ import { DepInjComponent } from './dep-inj.component';
 import { HighlightStatusDirective } from './directives/highlight-status.directive'
 import { AccountsService } from './services/accounts.service'
 import { LoggingService } from './services/logging.service';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AccountComponent, NewAccountComponent, DepInjComponent, HighlightStatusDirective],
   imports: [
     CommonModule,
-    BrowserModule
+    // BrowserModule,
+    RouterModule.forChild([
+      {path: '', component: DepInjComponent}
+    ])
   ],
-  exports: [DepInjComponent],
+  // exports: [DepInjComponent],
   bootstrap: [DepInjComponent],
   providers: [AccountsService, LoggingService]
 })
