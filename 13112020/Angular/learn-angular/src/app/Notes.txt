@@ -91,6 +91,7 @@ Routing:
     ng new <project-name> --routing //creates a routing enabled barebone Angular project
     Steps:
         ● Import RouterModule from @angular/core
-        ● Define your routes.
+        ● Define your routes. (in Routes array)
+        ● Add Routes to your application (routerLink)
         ● Update component with 'router-outlet'
         ● Add ReDirects

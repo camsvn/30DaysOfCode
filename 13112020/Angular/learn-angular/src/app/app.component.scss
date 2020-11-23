@@ -10,6 +10,10 @@ h3 {
   box-sizing: border-box;
 }
 
+.activeLink {
+  background: darken($color: #343434, $amount: 10);
+}
+
 #main-nav {
   height: 5vh;
   background: #343434;

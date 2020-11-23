@@ -25,10 +25,10 @@ import { PageNotFound404Component } from './page-not-found404/page-not-found404.
     FormsModule,
     DepInjModule, //feature module
     RouterModule.forRoot([
+      {path: 'angular-basics', component: ServersComponent, data:{title: 'Angular Basics'}},
+      {path: 'dep-inj', component: DepInjComponent, data:{title: 'Dependency Injection'}},
       {path: '', redirectTo:'/angular-basics', pathMatch:'full'},
-      {path: 'angular-basics', component: ServersComponent},
-      {path: 'directives', component: DepInjComponent},
-      {path: '**', component: PageNotFound404Component}
+      {path: '**', component: PageNotFound404Component, data:{title: '404'}}
     ])
   ],
   providers: [],
