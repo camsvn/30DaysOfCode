@@ -95,9 +95,11 @@ Routing:
 
 (Eager Loading, Lazy Loading, Pre-Loading)
 
-Lazy Loading: "a design pattern that loads NgModules as needed"
-    By default, NgModules are eagerly loaded, 
-    which means that as soon as the app loads,
-    so do all the NgModules, whether or not they are immediately necessary.
+Eager Loading   : as soon as the app loads, loads all NgModules before app starts (default)
+                    ie, loads all the NgModules, whether or not they are immediately necessary.
+
+Lazy Loading    : "a design pattern that loads NgModules as needed"    
+
+Pre Loading     : loading modules automatically in the bacground 
 
     
