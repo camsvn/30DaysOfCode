@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { AccountsService } from '../services/accounts.service';
 import { LoggingService } from '../services/logging.service';
 @Component({
@@ -7,14 +7,25 @@ import { LoggingService } from '../services/logging.service';
   styleUrls: ['./new-account.component.scss']
   // providers: [LoggingService]
 })
-export class NewAccountComponent {
+export class NewAccountComponent implements OnDestroy {
   // @Output() accountAdded = new EventEmitter<{name: string, status: string}>();
+  private observer;
 
   constructor(private loggingService: LoggingService,
               private  accountService: AccountsService){
-      accountService.statusUpdated.subscribe((status)=>{
+      this.observer = this.accountService.statusUpdated.subscribe((status)=>{
         console.log(`Cross-Component Communication, Data Received: '${status}'`)
       })
+  }
+
+  // ngOnInit(){
+  //   this.accountService.statusUpdated.subscribe((status)=>{
+  //     console.log(`Cross-Component Communication, Data Received: '${status}'`)
+  //   })
+  // }
+
+  ngOnDestroy(){
+    this.observer.unsubscribe();
   }
 
   onCreateAccount(accountName:string, accountStatus: string) {
