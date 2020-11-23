@@ -86,3 +86,11 @@ Dependency Injection:
 |                                       |
 |       Http:                           |
  ***************************************
+
+Routing:
+    ng new <project-name> --routing //creates a routing enabled barebone Angular project
+    Steps:
+        ● Import RouterModule from @angular/core
+        ● Define your routes.
+        ● Update component with 'router-outlet'
+        ● Add ReDirects

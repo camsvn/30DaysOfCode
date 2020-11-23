@@ -1,3 +1,40 @@
 h3 {
   color: blueviolet;
 }
+
+.wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+#main-nav {
+  height: 5vh;
+  background: #343434;
+  ul {
+      width: 100%; 
+      &:after{
+        content: '';
+        display: block;
+        clear: both;
+      }     
+  }
+  li{
+      list-style: none;
+      float: left;
+      // width: 14%;
+      width: (100% / 3);
+  }
+  a{
+      text-decoration: none;
+      color: wheat;
+      line-height: 5vh;
+      display: block;
+      text-align: center;
+      &:hover{
+          background: lighten($color: #343434, $amount: 10);
+      }
+  }
+}
