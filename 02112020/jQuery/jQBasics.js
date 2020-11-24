@@ -60,8 +60,8 @@ $(()=>{
             resize
             scroll
             unload
-
 */
+
 //event methods
     $(elementSelector).click(function(){
         print($(this))
@@ -87,6 +87,7 @@ $(()=>{
     }, function(){
         $(this).css({'font-size':'32px'})
     })
+    $('#flip').css("cursor","pointer");
 //jQuery Effects
     $("#flip").on({
         click: function(){
