@@ -11,8 +11,20 @@ publish
 
 timeout
 --------------
-js oops
 unit test cases
 npm | private public repo
 d3
 JQuery - Ajax
+Exception Handling - types
+
+Angular Routing Navigation
+Angular unit test cases
+Angular logging
+Angular webworker
+Angular websocket
+Angular Forms - ttd, reactive
+Ionic capacitor
+CRUD operations [capacitor-sqlite && Angular Akita]
+
+Ionic Cordava
+
