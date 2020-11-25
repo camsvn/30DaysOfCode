@@ -10,9 +10,6 @@ sample
 publish
 
 timeout
-
-BehaSubj
-
 --------------
 js oops
 unit test cases
