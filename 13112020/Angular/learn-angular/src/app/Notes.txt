@@ -102,4 +102,12 @@ Lazy Loading    : "a design pattern that loads NgModules as needed"
 
 Pre Loading     : loading modules automatically in the bacground 
 
+
+************************
+
+Forms:
+    ● Template Driven Forms : rely on directives in the template to create and manipulate the underlying object model.
+    ● Reactive Forms : provide direct, explicit access to the underlying forms object model. (scalable, reusable, and testable)
+    ● Dynamic Forms 
+
     
