@@ -20,6 +20,7 @@ JQuery - Ajax
 
 <ngTemplate> vs <div>
 
+Angular 'renderer'
 Angular Routing Navigation
 Angular unit test cases
 Angular logging

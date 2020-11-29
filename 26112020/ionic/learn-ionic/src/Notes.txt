@@ -1,0 +1,46 @@
+
+85 ionic components in 33 sections
+
+    ● Action Sheet              : ion-action-sheet
+    ● Alert                     : ion-alert
+    ● Badge                     : ion-badge
+    ● Button                    : ion-button | ion-ripple-effect
+    ● Floating Action Button    : ion-fab | -button | -list
+    ● Card                      : ion-card | -content | -header | -subtitle | -title
+    ● Checkbox                  : ion-checkbox
+    ● Radio                     : ion-radio | ion-radio-group
+    ● Range*                     : ion-range
+
+    ● Input                 : ion-input | ion-textarea
+    ● Date & Time picker    : ion-datetime | ion-picker
+    ● Icons                 : ion-icon
+    ● Media*                 : ion-avatar | ion-img | ion-thumbnail
+    ● Typography*            : ion-text
+
+    ● Select                : ion-select | -option
+    ● Toast                 : ion-toast
+    ● Toggle                : ion-toggle
+    ● Progress Indicator    : ion-loading | ion-progress-bar | ion-skelton-text | ion-spinner
+    ● Refresher             : ion-refresher | -content
+    ● Searchbar             : ion-searchbar
+
+    ● Content           : ion-app | ion-content
+    ● Item              : ion-item | -divider | -group | -sliding | -option | -options | ion-label | ion-note
+    ● List              : ion-list | -header | ion-virtual-scroll
+    ● Grid              : ion-grid | ion-col | ion-row
+    ● Menu              : ion-menu | -button | -toggle | ion-split-pane
+    ● Modal             : ion-modal | ion-backdrop
+    ● Infinite Scroll   : ion-infinite-scroll | -content
+
+    ● Slides        : ion-slides | ion-slide
+    ● Tabs          : ion-tabs | ion-tab | ion-tab-bar | ion-tab-button
+    ● Segment       : ion-segment | -button
+
+    ● Navigation    : ion-nav | ion-nav-link
+    ● Routing       : ion-router | -link | -outlet | ion-route | -redirect
+    
+    ● Chip          : ion-chip
+    ● Reorder       : ion-reorder | -group
+    ● Toolbar       : ion-toolbar | ion-header | ion-footer | ion-title | ion-buttons | ion-back-button
+    ● Popover       : ion-popover
+
