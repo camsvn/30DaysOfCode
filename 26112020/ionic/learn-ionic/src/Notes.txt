@@ -44,3 +44,8 @@
     ● Toolbar       : ion-toolbar | ion-header | ion-footer | ion-title | ion-buttons | ion-back-button
     ● Popover       : ion-popover
 
+
+
+adb command to see db:
+    adb -d shell "run-as io.ionic.test cat ./databases/bizRuntimeDBSQLite.db" > bizRuntime.db
+
