@@ -23,7 +23,7 @@ export class HomePage implements AfterViewInit {
   constructor(private _SQLiteService: SQLiteService) {}
 
   ngAfterViewInit(){
-    this._SQLiteService.initializePlugin()
+     this._SQLiteService.initializePlugin()
     setTimeout(()=> {
       this.openDB()
       this._SQLiteService.execute(this.createTBLQuery).then(data => {
