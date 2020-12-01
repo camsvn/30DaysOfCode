@@ -7,18 +7,22 @@
 <ion-content [fullscreen]="true" class="signup-pg-warpper">
   <div class="signup-ctnt-warpper">
     <h1>Signup Page</h1>
-    <div class="ip-wrapper">
-      <ion-input class="ip-signup" placeholder="First Name" type="text" clearInput ></ion-input>
-      <ion-input class="ip-signup" placeholder="Last Name" type="text" clearInput ></ion-input>
-    <ion-input class="ip-signup" placeholder="Username" type="text" clearInput ></ion-input>
-    <ion-input class="ip-signup" placeholder="Password" type="password" clearInput ></ion-input>
-  </div>
-    <ion-button 
-      class="signup-btn" 
-      type="submit"
-      color="success" 
-      fill="outline" 
-      shape="round"
-      expand="block">Signup</ion-button>
+    <form [formGroup]="signupForm" class="ip-wrapper">
+        <ion-input class="ip-signup" formControlName="firstname" placeholder="First Name" type="text" clearInput ></ion-input>
+        <ion-input class="ip-signup" formControlName="lastname" placeholder="Last Name" type="text" clearInput ></ion-input>
+        <ion-input class="ip-signup" formControlName="username" placeholder="Username" type="text" clearInput ></ion-input>
+        <ion-input class="ip-signup" formControlName="password" placeholder="Password" type="password" clearInput ></ion-input>
+      <div class="signup-btn-wrapper">
+        <ion-button 
+          class="signup-btn" 
+          type="submit"
+          color="success" 
+          fill="outline" 
+          shape="round"
+          (click)="onSignUp()"
+          [disabled]="btn_disabled"
+          expand="block">Signup</ion-button>
+      </div>
+    </form>
   </div>
 </ion-content>
