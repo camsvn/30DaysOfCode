@@ -4,6 +4,7 @@ import { ToastController } from '@ionic/angular';
 import { Plugins } from '@capacitor/core';
 import '@capacitor-community/sqlite';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject'
+
 const { CapacitorSQLite, Device } = Plugins;
 
 @Injectable({
@@ -15,7 +16,10 @@ export class SQLiteService {
   _platform: string;
   _isPermission: boolean = false;
   isService = new BehaviorSubject(undefined);
-  constructor(private toastController :ToastController) {}
+
+  constructor(
+    private toastController :ToastController
+    ) {}
   /**
    * Toast Service
    */
@@ -26,7 +30,6 @@ export class SQLiteService {
     });
     toast.present();
   }
-
 
   /**
    * Plugin Initialization

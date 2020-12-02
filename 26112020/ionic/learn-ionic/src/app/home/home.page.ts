@@ -1,5 +1,6 @@
 import { AfterViewInit, Component } from '@angular/core';
 // import { SQLiteService } from '../services/sqlite.service'
+import { Router } from '@angular/router'
 
 
 @Component({
@@ -10,9 +11,14 @@ import { AfterViewInit, Component } from '@angular/core';
 export class HomePage implements AfterViewInit {
 
   messages : string [] = ["Start", "End"];
-  constructor() {}
+  constructor(private _router: Router) {}
 
   ngAfterViewInit(){
+  }
+
+  onLogout(){
+    localStorage.setItem("loggedIn","false");
+    this._router.navigateByUrl('/login') 
   }
 
 }

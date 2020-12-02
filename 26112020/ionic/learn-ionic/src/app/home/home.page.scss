@@ -1,5 +1,3 @@
-@import "../../global.scss";
-
 #container {
   text-align: center;
   position: absolute;
@@ -7,12 +5,22 @@
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  // border: 1px solid green;
 }
 
 ion-toolbar{
-    // background-color: aqua;
-    // background: rgb(32, 155, 38);
+  --background: rgb(80, 80, 177);
+}
+
+ion-content{
+  // --background: rgb(43, 43, 49);
+  --background: aliceblue; //light theme
+  // --background: rgb(11, 29, 44); //dark theme
+  --color: rgb(71, 71, 202);
+  
+}
+
+.col{
+  width: fit-content;
 }
 
 #container strong {

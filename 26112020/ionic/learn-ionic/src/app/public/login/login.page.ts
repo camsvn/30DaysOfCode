@@ -15,7 +15,7 @@ export class LoginPage {
   });
 
   btn_disabled : boolean = false;
-  private _queryUser = "SELECT password FROM user WHERE username = ?";  
+  private _queryUser = "SELECT fname,password FROM user WHERE username = ?";  
 
   constructor(
     private _SQLiteService: SQLiteService,
@@ -28,13 +28,19 @@ export class LoginPage {
       // console.log(this.loginForm.value.username);
       this._SQLiteService.query(this._queryUser,[this.loginForm.value.username])
       .then(data => {
-        // console.log("Returned", data.values.length)
-        this.btn_disabled = true;
+        // console.log("Returned", data.values)
+        this.btn_disabled = true;        
         setTimeout(()=>{
           if(data.values.length && data.values[0].password === this.loginForm.value.password){
+            localStorage.setItem("loggedIn","true");
             this._SQLiteService.presentToast("Success");
-            this._router.navigateByUrl('/home')
+            this.loginForm.setValue({
+              username: '',
+              password: ''
+            })
+            this._router.navigateByUrl('/home')          
           } else{
+            localStorage.setItem("loggedIn","false");
             this._SQLiteService.presentToast("Invaid Username or Password");
           }
           this.btn_disabled = false
