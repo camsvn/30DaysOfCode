@@ -5,9 +5,13 @@
   "npmClient": "npm",
   "webDir": "www",
   "plugins": {
-    "SplashScreen": {
-      "launchShowDuration": 12345
+    "SplashScreen": {      
+      "launchAutoHide": false
     }
+  },
+  "android": {
+    "allowMixedContent": true,
+    "webContentsDebuggingEnabled": true
   },
   "cordova": {},
   "server": {

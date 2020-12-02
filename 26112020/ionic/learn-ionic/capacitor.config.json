@@ -6,8 +6,13 @@
   "webDir": "www",
   "plugins": {
     "SplashScreen": {
-      "launchShowDuration": 12345
+      "launchShowDuration": 5000,      
+      "launchAutoHide": true
     }
+  },
+  "android": {
+    "allowMixedContent": true,
+    "webContentsDebuggingEnabled": true
   },
   "cordova": {},
   "server": {

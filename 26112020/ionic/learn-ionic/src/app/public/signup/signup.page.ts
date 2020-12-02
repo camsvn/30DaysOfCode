@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup} from '@angular/forms'
+import { FormControl, FormGroup, Validators} from '@angular/forms'
 import { Router } from '@angular/router'
 import { SQLiteService } from '../../services/sqlite.service'
 
@@ -10,10 +10,10 @@ import { SQLiteService } from '../../services/sqlite.service'
 })
 export class SignupPage {
   signupForm = new FormGroup({
-    firstname: new FormControl(''),
-    lastname: new FormControl(''),
-    username: new FormControl(''),
-    password: new FormControl('')
+    firstname: new FormControl('',Validators.required),
+    lastname: new FormControl('',Validators.required),
+    username: new FormControl('',Validators.required),
+    password: new FormControl('',Validators.required)
   });
 
   btn_disabled : boolean = false;
@@ -25,26 +25,33 @@ export class SignupPage {
     ) { }
 
   async onSignUp(){
-    console.log(this.signupForm.value)
-    let values: Array<any>  = Object.values(this.signupForm.value);
-    this._SQLiteService.run(this._insertUser,values).then(val => {
-      // console.log(val) //changes{changes,lastId}
-      this.signupForm.setValue({
-        firstname: '',
-        lastname: '',
-        username: '',
-        password: ''
-      })
-      this.btn_disabled = true;
-      if (val.changes.changes === 1){
-        this._SQLiteService.presentToast("User Inserted")
+    if (this.signupForm.valid) {
+      console.log(this.signupForm.value)
+      let values: Array<any>  = Object.values(this.signupForm.value);
+      this._SQLiteService.run(this._insertUser,values).then(val => {
+        // console.log(val.message) //changes{changes,lastId}
+        this.btn_disabled = true;
+        this.signupForm.setValue({
+          firstname: '',
+          lastname: '',
+          username: '',
+          password: ''
+        })
+        console.log("Error: runSQL failed: net.sqlcipher.database.SQLiteConstraintException: error code 19: UNIQUE constraint failed: user.username");
+        
         setTimeout(()=>{
+          if (val.changes.changes === 1){        
+              this._SQLiteService.presentToast("User Inserted")
+              this._router.navigateByUrl("/login");            
+          } else {
+            val.message.includes("error code 19") && this._SQLiteService.presentToast("Error: User Already Exists")
+          }
           this.btn_disabled = false;
-          this._router.navigateByUrl("/login");
         } ,1500)
-      }
-    })
-    
+      })
+    } else {
+      this._SQLiteService.presentToast("Error:Invalid Inputs")
+    }
   }
 
 }

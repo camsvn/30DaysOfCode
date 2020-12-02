@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup} from '@angular/forms'
+import { FormControl, FormGroup, Validators} from '@angular/forms'
 import { Router } from '@angular/router'
 import { SQLiteService } from '../../services/sqlite.service'
 
@@ -10,8 +10,8 @@ import { SQLiteService } from '../../services/sqlite.service'
 })
 export class LoginPage {
   loginForm = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl('')
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
   });
 
   btn_disabled : boolean = false;
@@ -23,20 +23,26 @@ export class LoginPage {
     ) { }
  
   async onLogin(){
-    console.log(this.loginForm.value)
-    // console.log(this.loginForm.value.username);
-    this._SQLiteService.query(this._queryUser,[this.loginForm.value.username])
-    .then(data => {
-      // console.log("Returned", data.values.length)
-      this.btn_disabled = true;
-      if(data.values.length && data.values[0].password === this.loginForm.value.password){
-        this._SQLiteService.presentToast("Success");
-        this._router.navigateByUrl('/home')
-      } else{
-        this._SQLiteService.presentToast("Invaid Username or Password");
-      }
-      setTimeout(()=> this.btn_disabled = false, 1500)
-    })
+    if (this.loginForm.valid) {
+      console.log(this.loginForm.value)
+      // console.log(this.loginForm.value.username);
+      this._SQLiteService.query(this._queryUser,[this.loginForm.value.username])
+      .then(data => {
+        // console.log("Returned", data.values.length)
+        this.btn_disabled = true;
+        setTimeout(()=>{
+          if(data.values.length && data.values[0].password === this.loginForm.value.password){
+            this._SQLiteService.presentToast("Success");
+            this._router.navigateByUrl('/home')
+          } else{
+            this._SQLiteService.presentToast("Invaid Username or Password");
+          }
+          this.btn_disabled = false
+        }, 1500)
+      })
+    } else {
+      this._SQLiteService.presentToast("Error:Invalid Inputs")
+    }
   }
 
 }

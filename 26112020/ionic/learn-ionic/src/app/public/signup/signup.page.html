@@ -7,11 +7,11 @@
 <ion-content [fullscreen]="true" class="signup-pg-warpper">
   <div class="signup-ctnt-warpper">
     <h1>Signup Page</h1>
-    <form [formGroup]="signupForm" class="ip-wrapper">
-        <ion-input class="ip-signup" formControlName="firstname" placeholder="First Name" type="text" clearInput ></ion-input>
-        <ion-input class="ip-signup" formControlName="lastname" placeholder="Last Name" type="text" clearInput ></ion-input>
-        <ion-input class="ip-signup" formControlName="username" placeholder="Username" type="text" clearInput ></ion-input>
-        <ion-input class="ip-signup" formControlName="password" placeholder="Password" type="password" clearInput ></ion-input>
+    <form [formGroup]="signupForm" class="ip-wrapper" (ngSubmit)="onSignUp()" autocomplete="off">
+        <ion-input class="ip-signup" formControlName="firstname" placeholder="First Name" type="text" clearInput></ion-input>
+        <ion-input class="ip-signup" formControlName="lastname" placeholder="Last Name" type="text" clearInput></ion-input>
+        <ion-input class="ip-signup" formControlName="username" placeholder="Username" type="text" clearInput></ion-input>
+        <ion-input class="ip-signup" formControlName="password" placeholder="Password" type="password" clearInput></ion-input>
       <div class="signup-btn-wrapper">
         <ion-button 
           class="signup-btn" 
@@ -19,9 +19,11 @@
           color="success" 
           fill="outline" 
           shape="round"
-          (click)="onSignUp()"
           [disabled]="btn_disabled"
-          expand="block">Signup</ion-button>
+          expand="block">
+            Signup
+            <ion-spinner *ngIf="btn_disabled" name="bubbles"></ion-spinner>
+        </ion-button>          
       </div>
     </form>
   </div>
