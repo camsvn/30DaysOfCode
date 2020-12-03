@@ -33,7 +33,22 @@
           Camera Module CRUD ops
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <p>This is the primary content of the panel.</p>
+      <!--  defer initialization until the panel is open -->
+      <ng-template matExpansionPanelContent>
+        <ion-row>
+          <img src="http://placehold.it/350x220"/>
+        </ion-row>
+        <ion-row>
+          <ion-button>
+            <ion-icon name="checkmark-outline" class="icon-margin"></ion-icon>
+            Upload Image
+          </ion-button>        
+          <ion-button>
+            <ion-icon name="trash-outline" class="icon-margin"></ion-icon>
+            Delete Image
+          </ion-button>
+      </ion-row>
+      </ng-template>      
     </mat-expansion-panel>
 
 <!-- GeoLocation -->
@@ -42,12 +57,12 @@
         <mat-panel-title>
           GeoLocation
         </mat-panel-title>
+        <ng-template matExpansionPanelContent>
+          Some deferred content
+          <p>I'm visible because I am open</p>
+        </ng-template>
       </mat-expansion-panel-header>
-      <!--  defer initialization until the panel is open -->
-      <ng-template matExpansionPanelContent>
-        Some deferred content
-        <p>I'm visible because I am open</p>
-      </ng-template>
+      
     </mat-expansion-panel>
 
 <!-- SignaturePad -->
@@ -57,8 +72,22 @@
           Signature Pad
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
+      <ng-template matExpansionPanelContent>
+        <canvas class="signature-pad-canvas" #canvas height="200" style="touch-action: none;"></canvas>
+        <ion-button>
+          <ion-icon name="checkmark-outline" class="icon-margin"></ion-icon>
+          Submit
+        </ion-button>
+        <ion-button>
+          <ion-icon name="refresh-outline" class="icon-margin"></ion-icon>
+          Clear
+        </ion-button>
+        <ion-button>
+          <ion-icon name="trash-outline" class="icon-margin"></ion-icon>
+          Delete
+        </ion-button>
+      </ng-template>
     </mat-expansion-panel>
   </mat-accordion>
-  
+
 </ion-content>

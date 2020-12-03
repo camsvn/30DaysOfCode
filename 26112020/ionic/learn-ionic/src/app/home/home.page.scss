@@ -1,11 +1,11 @@
-#container {
-  text-align: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
+// #container {
+//   text-align: center;
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   top: 50%;
+//   transform: translateY(-50%);
+// }
 
 ion-toolbar{
   --background: rgb(80, 80, 177);
@@ -16,32 +16,40 @@ ion-content{
   // --background: rgb(43, 43, 49);
   --background: aliceblue; //light theme
   // --background: rgb(11, 29, 44); //dark theme
-  --color: rgb(71, 71, 202);
-  
+  --color: rgb(71, 71, 202);  
 }
 
 h1 {
   margin-bottom: 10px !important;
 }
 
-.col{
-  width: fit-content;
+// .col{
+//   width: fit-content;
+// }
+
+// #container strong {
+//   font-size: 20px;
+//   line-height: 26px;
+// }
+
+// #container p {
+//   font-size: 16px;
+//   line-height: 22px;
+
+//   color: #8c8c8c;
+
+//   margin: 0;
+// }
+
+// #container a {
+//   text-decoration: none;
+// }
+
+.signature-pad-canvas{
+  border: 2px solid black;
+  width: 100%;    
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+.icon-margin{
+  margin-right: 5px;
 }
