@@ -40,6 +40,26 @@ export class HomePage implements AfterViewInit, OnInit, AfterContentChecked {
     FOREIGN KEY("uid") REFERENCES "user"("id")
   );
   `
+
+  private _syncTablesQry = `
+    INSERT INTO datas (uid)
+    SELECT id from user
+    EXCEPT
+    SELECT uid from datas`;
+
+  private _uploadImgQry = `INSERT INTO datas (uid, img) VALUES (?,?)`;
+  private _uploadSignatureQry = `INSERT INTO datas (uid, img) VALUES (?,?)`;
+  private _uploadLocationQry = `INSERT INTO datas (uid, location) VALUES (?,?)`;
+  
+  update = `UPDATE datas
+  SET location = "NewYork"
+  WHERE uid = "1"`
+
+  updateTable(){
+
+  }
+  
+
   @ViewChild('canvas', { static: true }) signaturePadElement: ElementRef;  
   
   @HostListener('window: resize', ['$event'])
@@ -72,10 +92,14 @@ export class HomePage implements AfterViewInit, OnInit, AfterContentChecked {
   ngAfterViewInit() {
     this._SQLiteService.execute(this._createDataTBL).then(data => {
       this._SQLiteService.presentToast(`Returned ${data}`)
-          if(data.changes.changes === 0)
-          this._SQLiteService.presentToast("Table 'data' created")
-          else 
-          this._SQLiteService.presentToast(`Table not created ${data.message}` )
+      if(data.changes.changes === 0)
+        this._SQLiteService.presentToast("Table 'data' created")
+      else 
+        this._SQLiteService.presentToast(`Table not created ${data.message}`)
+
+        this._SQLiteService.run(this._syncTablesQry).then(data => {
+          console.log(`${data.changes.changes} rows affected`)
+        })
     });
     this.signaturePad = new SignaturePad(this.signaturePadElement.nativeElement);
     this.signaturePad.clear();
@@ -130,16 +154,7 @@ export class HomePage implements AfterViewInit, OnInit, AfterContentChecked {
       preserveAspectRatio: true,      
       resultType: CameraResultType.DataUrl
     });
-    // image.webPath will contain a path that can be set as an image src.
-    // You can access the original file using image.path, which can be
-    // passed to the Filesystem API to read the raw data of the image,
-    // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
-    // var imageUrl = image.webPath;
     console.log(image.dataUrl);
-    // let imageURL = `data:image/jpeg;base64,${image.base64String}`; 
-    // console.log(imageURL);
-    // console.log("ImageURL",imageUrl);
-    // Can be set to the src of an image now
     this.profilePicElement.src = image.dataUrl;
     } catch (e) {
       this._SQLiteService.presentToast("Camera Closed")

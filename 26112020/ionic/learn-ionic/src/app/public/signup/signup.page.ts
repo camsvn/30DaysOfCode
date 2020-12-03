@@ -37,7 +37,7 @@ export class SignupPage {
           username: '',
           password: ''
         })
-        console.log("Error: runSQL failed: net.sqlcipher.database.SQLiteConstraintException: error code 19: UNIQUE constraint failed: user.username");
+        // console.log("Error: runSQL failed: net.sqlcipher.database.SQLiteConstraintException: error code 19: UNIQUE constraint failed: user.username");
         
         setTimeout(()=>{
           if (val.changes.changes === 1){        
