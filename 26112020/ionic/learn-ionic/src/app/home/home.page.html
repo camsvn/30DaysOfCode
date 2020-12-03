@@ -34,21 +34,21 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
       <!--  defer initialization until the panel is open -->
-      <ng-template matExpansionPanelContent>
-        <ion-row>
-          <img src="http://placehold.it/350x220"/>
+      <!-- <ng-template matExpansionPanelContent> -->
+        <ion-row class="ion-justify-content-center">
+          <img id="profile-pic" src="http://placehold.it/350x220"/>
         </ion-row>
         <ion-row>
-          <ion-button>
+          <ion-button (click)="takePicture()">
             <ion-icon name="checkmark-outline" class="icon-margin"></ion-icon>
             Upload Image
           </ion-button>        
-          <ion-button color="danger">
+          <ion-button color="danger" (click)="deletePicture()">
             <ion-icon name="trash-outline" class="icon-margin"></ion-icon>
             Delete Image
           </ion-button>
       </ion-row>
-      </ng-template>      
+      <!-- </ng-template> -->
     </mat-expansion-panel>
 
 <!-- GeoLocation -->
@@ -57,12 +57,22 @@
         <mat-panel-title>
           GeoLocation
         </mat-panel-title>
-        <ng-template matExpansionPanelContent>
-          Some deferred content
-          <p>I'm visible because I am open</p>
+        <ng-template matExpansionPanelContent>          
+          <ion-row *ngIf="geoLocationCoords.latitude === null ? false : true">
+            Lat: {{geoLocationCoords.latitude}} | Long: {{geoLocationCoords.longitude}}
+          </ion-row>
+          <ion-row>
+            <ion-button [disabled]="getLocationDisabled" (click)="getCurrentPosition()">
+              <ion-icon name="locate-outline" class="icon-margin"></ion-icon>
+              Where am I?
+            </ion-button>
+            <ion-button (click)="uploadLocation()">
+              <ion-icon name="save-outline" class="icon-margin"></ion-icon>
+              Update
+            </ion-button>
+          </ion-row>
         </ng-template>
-      </mat-expansion-panel-header>
-      
+      </mat-expansion-panel-header>      
     </mat-expansion-panel>
 
 <!-- SignaturePad -->

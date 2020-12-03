@@ -28,14 +28,14 @@ export class AppComponent implements AfterViewInit{
     private statusBar: StatusBar,
     private _SQLiteService: SQLiteService
   ) {
-    this.splashScreen.hide();
+    // this.splashScreen.hide();
     this.initializeApp();
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
-      // this.splashScreen.hide();
+      this.splashScreen.hide();
       this._SQLiteService.presentToast("App is Ready")
     });
   }
