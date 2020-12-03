@@ -43,7 +43,7 @@
             <ion-icon name="checkmark-outline" class="icon-margin"></ion-icon>
             Upload Image
           </ion-button>        
-          <ion-button>
+          <ion-button color="danger">
             <ion-icon name="trash-outline" class="icon-margin"></ion-icon>
             Delete Image
           </ion-button>
@@ -72,21 +72,24 @@
           Signature Pad
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <ng-template matExpansionPanelContent>
+      <!-- <ng-template matExpansionPanelContent> -->
         <canvas class="signature-pad-canvas" #canvas height="200" style="touch-action: none;"></canvas>
-        <ion-button>
+        <ion-button [disabled]="isCanvasBlank()" (click)="uploadSignature()">
           <ion-icon name="checkmark-outline" class="icon-margin"></ion-icon>
           Submit
         </ion-button>
-        <ion-button>
+        <ion-button (click)="clearCanvas()">
           <ion-icon name="refresh-outline" class="icon-margin"></ion-icon>
           Clear
         </ion-button>
-        <ion-button>
+        <ion-button 
+          (click)="deleteSignature()"
+          color="danger"
+        >
           <ion-icon name="trash-outline" class="icon-margin"></ion-icon>
           Delete
         </ion-button>
-      </ng-template>
+      <!-- </ng-template> -->
     </mat-expansion-panel>
   </mat-accordion>
 
