@@ -11,7 +11,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { SQLiteService } from './services/sqlite.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

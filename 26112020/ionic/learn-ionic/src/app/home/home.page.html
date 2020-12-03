@@ -15,9 +15,50 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-grid>
+  <!-- <ion-grid>
     <ion-row class="ion-justify-content-center">
       {{messages}}
     </ion-row>
-  </ion-grid>
+  </ion-grid> -->
+  <h1>Hi, {{user.name}}</h1>
+
+  <mat-accordion>
+<!-- Camera Module -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Profile Picture
+        </mat-panel-title>
+        <mat-panel-description>
+          Camera Module CRUD ops
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>This is the primary content of the panel.</p>
+    </mat-expansion-panel>
+
+<!-- GeoLocation -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          GeoLocation
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <!--  defer initialization until the panel is open -->
+      <ng-template matExpansionPanelContent>
+        Some deferred content
+        <p>I'm visible because I am open</p>
+      </ng-template>
+    </mat-expansion-panel>
+
+<!-- SignaturePad -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Signature Pad
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>I'm visible because I am open</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+  
 </ion-content>
