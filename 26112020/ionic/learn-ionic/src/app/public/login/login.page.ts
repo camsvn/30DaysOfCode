@@ -15,7 +15,7 @@ export class LoginPage {
   });
 
   btn_disabled : boolean = false;
-  private _queryUser = "SELECT fname,password FROM user WHERE username = ?";  
+  private _queryUser = "SELECT id,fname,password FROM user WHERE username = ?";  
 
   constructor(
     private _SQLiteService: SQLiteService,
@@ -33,6 +33,10 @@ export class LoginPage {
         setTimeout(()=>{
           if(data.values.length && data.values[0].password === this.loginForm.value.password){
             localStorage.setItem("loggedIn","true");
+            localStorage.setItem("user",JSON.stringify({
+              id: data.values[0].id,
+              name: data.values[0].fname
+            }));
             this._SQLiteService.presentToast("Success");
             this.loginForm.setValue({
               username: '',

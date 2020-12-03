@@ -17,7 +17,7 @@ export class HomePage implements AfterViewInit {
   }
 
   onLogout(){
-    localStorage.setItem("loggedIn","false");
+    localStorage.clear();
     this._router.navigateByUrl('/login') 
   }
 
