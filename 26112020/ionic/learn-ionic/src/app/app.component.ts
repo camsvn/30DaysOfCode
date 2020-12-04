@@ -28,9 +28,9 @@ export class AppComponent implements AfterViewInit{
     private statusBar: StatusBar,
     private _SQLiteService: SQLiteService
   ) {
-    this.statusBar.styleDefault();
-    this.splashScreen.hide();
-    // this.initializeApp();
+    // this.statusBar.styleDefault();
+    // this.splashScreen.hide();
+    this.initializeApp();
   }
 
   initializeApp() {
