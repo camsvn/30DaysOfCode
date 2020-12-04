@@ -6,7 +6,7 @@
   "webDir": "www",
   "plugins": {
     "SplashScreen": {
-      "launchShowDuration": 5000,      
+      "launchShowDuration": 3000,
       "launchAutoHide": true
     }
   },
@@ -14,9 +14,5 @@
     "allowMixedContent": true,
     "webContentsDebuggingEnabled": true
   },
-  "cordova": {},
-  "server": {
-    "url": "http://192.168.1.222:8100",
-    "cleartext": true
-  }
+  "cordova": {}
 }
