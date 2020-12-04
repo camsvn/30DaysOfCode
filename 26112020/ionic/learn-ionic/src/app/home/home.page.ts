@@ -29,6 +29,7 @@ export class HomePage implements AfterViewInit, OnInit, AfterContentChecked {
   geoLocationCoords : coords = {latitude: null, longitude: null};
   getLocationDisabled = false;
   profilePicElement: HTMLImageElement;
+  fetchedData: {img?: string, signature?: string, location?: string};
 
 
   private _createDataTBL = `CREATE TABLE IF NOT EXISTS "datas" (
@@ -46,20 +47,7 @@ export class HomePage implements AfterViewInit, OnInit, AfterContentChecked {
     SELECT id from user
     EXCEPT
     SELECT uid from datas`;
-
-  private _uploadImgQry = `INSERT INTO datas (uid, img) VALUES (?,?)`;
-  private _uploadSignatureQry = `INSERT INTO datas (uid, img) VALUES (?,?)`;
-  private _uploadLocationQry = `INSERT INTO datas (uid, location) VALUES (?,?)`;
-  
-  update = `UPDATE datas
-  SET location = "NewYork"
-  WHERE uid = "1"`
-
-  updateTable(){
-
-  }
-  
-
+ 
   @ViewChild('canvas', { static: true }) signaturePadElement: ElementRef;  
   
   @HostListener('window: resize', ['$event'])
@@ -75,9 +63,17 @@ export class HomePage implements AfterViewInit, OnInit, AfterContentChecked {
     private _SQLiteService: SQLiteService,
     private elementRef: ElementRef) {}
 
-  ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem('user')); 
+  ngOnInit() {    
+    this.user = JSON.parse(localStorage.getItem('user'));
     // console.log(this.user.name)
+    let getDataQry = `
+      SELECT img, signature, location FROM datas WHERE uid = ${this.user.id}
+    `;
+    this._SQLiteService.query(getDataQry).then(result => {
+      if(result.values.length) {
+        this.fetchedData = result.values[0];
+      }
+    })
     this.init();
   }
 
@@ -85,7 +81,7 @@ export class HomePage implements AfterViewInit, OnInit, AfterContentChecked {
     this.profilePicElement = this.elementRef.nativeElement.querySelector('#profile-pic');
     const canvas: HTMLCanvasElement = this.elementRef.nativeElement.querySelector('canvas');
     canvas.width = window.innerWidth - 80;
-    canvas.height = 200;
+    canvas.height = 200;    
     this.clearCanvas();
   }
 
@@ -103,7 +99,7 @@ export class HomePage implements AfterViewInit, OnInit, AfterContentChecked {
     });
     this.signaturePad = new SignaturePad(this.signaturePadElement.nativeElement);
     this.signaturePad.clear();
-    this.signaturePad.penColor = 'rgb(43, 43, 49)';
+    this.signaturePad.penColor = 'rgb(43, 43, 49)';    
   }
 
   ngAfterContentChecked(){
@@ -128,11 +124,36 @@ export class HomePage implements AfterViewInit, OnInit, AfterContentChecked {
   }
 
   uploadSignature(){
+    let uploadSignatureQry = `
+      UPDATE datas
+      SET signature = ?
+      WHERE uid = ${this.user.id}
+    `;
     let signaturePNG = this.signaturePad.toDataURL();
     console.log(signaturePNG);
+    this._SQLiteService.run(uploadSignatureQry,[signaturePNG]).then(result => {
+      if (result.changes.changes === 1) {
+        this._SQLiteService.presentToast("Signature Uploaded!")
+      } else {
+        this._SQLiteService.presentToast("Error Uploading Signature")
+      }
+    })
   }
 
-  deleteSignature(){}
+  deleteSignature(){
+    let deleteSignatureQry = `
+      UPDATE datas
+      SET signature = ""
+      WHERE uid = ${this.user.id}
+    `;
+    this._SQLiteService.run(deleteSignatureQry).then(result => {
+      if (result.changes.changes === 1) {
+        this._SQLiteService.presentToast("Signature Deleted!")
+      } else {
+        this._SQLiteService.presentToast("Error Deleting Signature")
+      }
+    })
+  }
 
   async getCurrentPosition() {
     this.getLocationDisabled = true;
@@ -142,9 +163,28 @@ export class HomePage implements AfterViewInit, OnInit, AfterContentChecked {
     this.geoLocationCoords = coordinates.coords;
   }
 
-  uploadLocation(){}
+  uploadLocation(){
+    let uploadLocationQry = `
+      UPDATE datas
+      SET location = ?
+      WHERE uid = ${this.user.id}
+    `;
+    this.geoLocationCoords.latitude !== null ? this._SQLiteService.run(uploadLocationQry,[JSON.stringify(this.geoLocationCoords)])
+    .then(result => {
+      if (result.changes.changes === 1) {
+        this._SQLiteService.presentToast("Location Updated!")
+      } else {
+        this._SQLiteService.presentToast("Error Updating Location")
+      }
+    }) : this._SQLiteService.presentToast("No Location data available!");
+  }
 
   async takePicture() {
+    let uploadImageQry = `
+      UPDATE datas
+      SET img = ?
+      WHERE uid = ${this.user.id}
+    `;
     try{
       const image = await Camera.getPhoto({
       quality: 90,
@@ -154,16 +194,44 @@ export class HomePage implements AfterViewInit, OnInit, AfterContentChecked {
       preserveAspectRatio: true,      
       resultType: CameraResultType.DataUrl
     });
-    console.log(image.dataUrl);
-    this.profilePicElement.src = image.dataUrl;
+    console.log(image.dataUrl);    
+    this._SQLiteService.run(uploadImageQry,[image.dataUrl]).then(result => {
+      if (result.changes.changes === 1) {
+        this._SQLiteService.presentToast("Image Uploaded!")
+        this.profilePicElement.src = image.dataUrl;
+      } else {
+        this._SQLiteService.presentToast("Error Uploading Image")
+      }
+    })
     } catch (e) {
       this._SQLiteService.presentToast("Camera Closed")
     }
   }
 
   deletePicture(){
+    let deleteImageQry = `
+      UPDATE datas
+      SET img = ""
+      WHERE uid = ${this.user.id}
+    `;
     if (this.profilePicElement.src) {
-      this.profilePicElement.src = ""
+      this._SQLiteService.run(deleteImageQry).then(result => {
+        if (result.changes.changes === 1) {
+          this._SQLiteService.presentToast("Image Deleted!")
+          this.profilePicElement.src = "";
+        } else {
+          this._SQLiteService.presentToast("Error Deleting Image")
+        }
+      })
+    }
+  }
+
+  syncView(){
+    if (this.fetchedData){
+      this.profilePicElement.src = this.fetchedData.img;
+      this.signaturePad.fromDataURL(this.fetchedData.signature);
+      this.geoLocationCoords = JSON.parse(this.fetchedData.location);
+      this._SQLiteService.presentToast("View Synced")
     }
   }
 }

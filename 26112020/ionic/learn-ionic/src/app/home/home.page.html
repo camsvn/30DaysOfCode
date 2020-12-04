@@ -36,7 +36,7 @@
       <!--  defer initialization until the panel is open -->
       <!-- <ng-template matExpansionPanelContent> -->
         <ion-row class="ion-justify-content-center">
-          <img id="profile-pic" src="http://placehold.it/350x220"/>
+          <img id="profile-pic"/>
         </ion-row>
         <ion-row>
           <ion-button (click)="takePicture()">
@@ -102,5 +102,10 @@
       <!-- </ng-template> -->
     </mat-expansion-panel>
   </mat-accordion>
-
+  <ion-row class="ion-justify-content-center ion-padding-top">
+    <ion-button color="success" (click)="syncView()">
+      <ion-icon name="sync-outline" class="icon-margin"></ion-icon>
+      Sync View
+    </ion-button>
+</ion-row>
 </ion-content>
